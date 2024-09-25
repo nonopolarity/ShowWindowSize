@@ -9,27 +9,46 @@
       body {
         margin: 0;
         padding: 0;
+        font: 18px Arial, sans-serif;
+      }
+
+      #message-container {
+        width: 100vw;
+        height: 100vh;
+        background: beige;
+      }
+
+      #message-container,
+      #message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
       }
     </style>
   </head>
   <body>
-    <div id="message"></div>
+    <div id="message-container">
+      <div id="message"></div>
+    </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        console.log("DOM fully loaded and parsed");
-
+      function showWindowSize() {
         document.querySelector(
           "#message"
-        ).innerHTML = `The size of the window is, width: ${document.body.clientWidth}, height: ${document.body.clientHeight}\nwidth: ${document.body.offsetWidth}, height: ${document.body.offsetHeight}`;
+        ).innerHTML = `The size of the window is<div>width: ${document.body.offsetWidth}</div><div>height: ${document.body.offsetHeight}</div>`;
+      }
+      document.addEventListener("DOMContentLoaded", (event) => {
+        console.log("DOM fully loaded and parsed");
+        showWindowSize();
 
-        setTimeout(() => {
-          document
-            .querySelector("#message")
-            .append(
-              `The size of the window is, width: ${document.body.clientWidth}, height: ${document.body.clientHeight}\nwidth: ${document.body.offsetWidth}, height: ${document.body.offsetHeight}`
-            );
-        }, 1000);
+        // setTimeout(() => {
+        //   document
+        //     .querySelector("#message")
+        //     .append(
+        //       `The size of the window is, width: ${document.body.clientWidth}, height: ${document.body.clientHeight}\nwidth: ${document.body.offsetWidth}, height: ${document.body.offsetHeight}`
+        //     );
+        // }, 1000);
       });
     </script>
   </body>
