@@ -37,6 +37,10 @@
         document.querySelector(
           "#message"
         ).innerHTML = `The size of the window is<div>width: ${document.body.offsetWidth}</div><div>height: ${document.body.offsetHeight}</div>`;
+
+        console.log(
+          `The size of the window is, width: ${document.body.clientWidth}, height: ${document.body.clientHeight}\nwidth: ${document.body.offsetWidth}, height: ${document.body.offsetHeight}`
+        );
       }
       document.addEventListener("DOMContentLoaded", (event) => {
         console.log("DOM fully loaded and parsed");
